@@ -39,16 +39,12 @@ public:
     void updateClass();
     void updateGender();
     void updateStats();
+    void showPix();
 
 private slots:
 
-    void on_randName_clicked();
 
-    void on_randClass_clicked();
-
-    void on_randGender_clicked();
-
-    void on_cStats_clicked();
+    void on_charGen_clicked();
 
 private:
     Ui::MainWindow *ui;

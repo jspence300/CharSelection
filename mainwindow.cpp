@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -15,34 +17,32 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_randName_clicked()
+void MainWindow::on_charGen_clicked()
 {
     updateName();
+    updateClass();
+    updateStats();
+    updateGender();
+    showPix();
 }
+
+
 void MainWindow::updateName()
 {
     subNum1 = (rand() % 4);
 
     ui->nameDisplay->setText(cName[subNum1]);
+
 }
 
-
-void MainWindow::on_randClass_clicked()
-{
-    updateClass();
-}
 void MainWindow::updateClass()
 {
     subNum2 = (rand() % 4);
     classN = cClass[subNum2];
     ui->classDisplay->setText(classN);
+    showPix();
 }
 
-
-void MainWindow::on_randGender_clicked()
-{
-    updateGender();
-}
 void MainWindow::updateGender()
 {
     subNum3 = (rand() % 2);
@@ -85,7 +85,24 @@ void MainWindow::updateStats()
     ui->intLabel->setText(QString::number(intellect));
 }
 
-void MainWindow::on_cStats_clicked()
+
+void MainWindow::showPix()
 {
-    updateStats();
+    QPixmap donPix("C:/Users/zach/Desktop/projpics/trump.png");
+    QPixmap hilPix("C:/Users/zach/Desktop/projpics/hill.png");
+    QPixmap bernPix("C:/Users/zach/Desktop/projpics/bern.png");
+    QPixmap rubiPix("C:/Users/zach/Desktop/projpics/rubi.png");
+
+    if(classN == "Warrior")
+        ui->picLabel->setPixmap(donPix);
+    else if(classN == "Druid")
+        ui->picLabel->setPixmap(hilPix);
+    else if(classN == "Warlock")
+        ui->picLabel->setPixmap(bernPix);
+    else if(classN == "Paladin")
+        ui->picLabel->setPixmap(rubiPix);
+    else
+        ui->picLabel->setText("No Picture Provided!");
 }
+
+
