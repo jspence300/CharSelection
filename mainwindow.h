@@ -25,13 +25,20 @@ public:
     QString classN;
     QString genD;
 
+
     int subNum1 = 0;
     int subNum2 = 0;
     int subNum3 = 0;
+    int stamina;
+    int strength;
+    int intellect;
+    int agility;
+    int spirit = 0;
 
     void updateName();
     void updateClass();
     void updateGender();
+    void updateStats();
 
 private slots:
 
@@ -40,6 +47,8 @@ private slots:
     void on_randClass_clicked();
 
     void on_randGender_clicked();
+
+    void on_cStats_clicked();
 
 private:
     Ui::MainWindow *ui;
